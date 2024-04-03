@@ -4,8 +4,63 @@
 
 <div>
   <label for="year">Filter by Launch Year:</label>
-  <input type="text" id="year" [(ngModel)]="year" (ngModelChange)="filterByYear()" name="year">
-  <button (click)="filterByYear()">Filter</button>  
+  <input
+    type="text"
+    id="year"
+    [(ngModel)]="year"
+    (ngModelChange)="filterByYear()"
+    name="year"
+  />
+  <button (click)="filterByYear()" id="btn-filter" class="btn-filter">
+    Filter
+  </button>
+
+  <p>Launch</p>
+  <label>
+    <input
+      type="radio"
+      name="successFilter"
+      [(ngModel)]="launchSuccess"
+      (ngModelChange)="filterByYear()"
+      value="true"
+    />
+    Successful
+  </label>
+  <label>
+    <input
+      type="radio"
+      name="successFilter"
+      [(ngModel)]="launchSuccess"
+      (ngModelChange)="filterByYear()"
+      value="false"
+    />
+    Failed
+  </label>
+  <p>Landing</p>
+  <label>
+    <input
+      type="radio"
+      name="landingFilter"
+      [(ngModel)]="landSuccess"
+      (ngModelChange)="filterByYear()"
+      value="true"
+    />
+    Successful
+  </label>
+  <label>
+    <input
+      type="radio"
+      name="landingFilter"
+      [(ngModel)]="landSuccess"
+      (ngModelChange)="filterByYear()"
+      value="false"
+    />
+    Failed
+  </label>
+  <br />
+  <button (click)="resetFilters()" id="btn-reset" class="btn-reset">
+    Reset Filters
+  </button>
 </div>
 
 <ul>

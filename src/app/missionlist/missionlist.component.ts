@@ -5,12 +5,14 @@ import { Mission } from '../models/mission';
 @Component({
   selector: 'app-missionlist',
   templateUrl: './missionlist.component.html',
-  styleUrls: ['./missionlist.component.css'],
+  styleUrls: ['./missionlist.component.css']
 })
 export class MissionlistComponent implements OnInit {
   missions: Mission[] = [];
   filteredMissions: Mission[] = [];
-  year: string = ''; // Initialized as an empty string
+  year: string = ''; // For year filter
+  launchSuccess: string | undefined; // Allow undefined
+  landSuccess: string | undefined; // Allow undefined
 
   constructor(private spacexapiService: SpacexapiService) {}
 
@@ -21,18 +23,37 @@ export class MissionlistComponent implements OnInit {
   getMissions(): void {
     this.spacexapiService.getMissions().subscribe((missions) => {
       this.missions = missions;
-      this.filteredMissions = missions; // Initially, filteredMissions will show all missions
+      this.filterByYear(); // Call filter method to apply initial filters if any
     });
   }
 
   filterByYear(): void {
+    let filtered = this.missions;
+
     if (this.year.trim()) {
-      // Use trim() to remove any leading/trailing whitespace
-      this.filteredMissions = this.missions.filter(
-        (mission) => mission.launch_year.toString() === this.year.trim()
-      );
-    } else {
-      this.filteredMissions = this.missions;
+      filtered = filtered.filter(mission => mission.launch_year.toString() === this.year.trim());
     }
+
+    if (this.launchSuccess !== undefined) {
+      const isSuccess = this.launchSuccess === 'true';
+      // Make sure mission.launch_success exists in your model
+      filtered = filtered.filter(mission => mission.launch_success?.toString() === this.launchSuccess);
+    }
+
+    if (this.landSuccess !== undefined) {
+      const isSuccess = this.landSuccess === 'true';
+      filtered = filtered.filter(mission =>
+        mission.rocket.first_stage?.cores[0]?.land_success?.toString() === this.landSuccess
+      );
+    }
+
+    this.filteredMissions = filtered;
+  }
+
+  resetFilters(): void {
+    this.year = '';
+    this.launchSuccess = undefined;
+    this.landSuccess = undefined;
+    this.filteredMissions = this.missions;
   }
 }
