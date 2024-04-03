@@ -1,0 +1,20 @@
+<!-- mission.component.html -->
+
+<h2>Mission List</h2>
+
+<div>
+  <label for="year">Filter by Launch Year:</label>
+  <input type="text" id="year" [(ngModel)]="year" (ngModelChange)="filterByYear()" name="year">
+  <button (click)="filterByYear()">Filter</button>  
+</div>
+
+<ul>
+  <li *ngFor="let mission of filteredMissions">
+    <a routerLink="/details/{{ mission.flight_number }}">
+      <img src="{{ mission.links.mission_patch_small }}" alt="mission patch" />
+      <h1>{{ mission.mission_name }}</h1>
+      <h3>{{ mission.launch_year }}</h3>
+      <p>{{ mission.details }}</p>
+    </a>
+  </li>
+</ul>

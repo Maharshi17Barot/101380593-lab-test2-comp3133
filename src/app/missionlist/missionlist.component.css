@@ -1,0 +1,47 @@
+/* styles.css */
+
+/* Apply flexbox to the ul element */
+ul {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap to the next line */
+  list-style-type: none; /* Remove default bullet points */
+  padding: 0;
+}
+
+/* Style for each list item */
+li {
+  flex: 1 1 100%; /* Flex-grow, flex-shrink, flex-basis */
+  padding: 10px;
+  box-sizing: border-box; /* Include padding in total width/height */
+  margin: 5px; /* Add margin to create space between items */
+  background-color: lightblue; /* Set background color of individual items to light blue */
+  border: 3px solid black; /* Add border around each individual item */
+  border-radius: 5px; /* Add border-radius to create rounded corners for individual items */
+}
+
+/* Style for the anchor tag */
+a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: column; 
+}
+
+/* Style for the image */
+img {
+  width: 10%; /* Set image width to 10% */
+  height: auto;
+  margin-right: 10px;
+}
+
+/* Style for the headings */
+h1,
+h3 {
+  margin: 0;
+}
+
+/* Style for the paragraph */
+p {
+  margin-top: 10px;
+  text-align: left; /* Align text to the left */
+}

@@ -1,0 +1,14 @@
+<body>
+  <img src="{{ mission.links.mission_patch_small }}" alt="mission patch" />
+  <h1>Mission - {{ mission.mission_name }}</h1>
+  <p>Name: {{ mission.mission_name }}</p>
+  <p>Launch Year: {{ mission.launch_year }}</p>
+  <h1>Rocket</h1>
+  <p>Name: {{ mission.rocket.rocket_name }}</p>
+  <p>Type: {{ mission.rocket.rocket_type }}</p>
+  <h1>Launch Site</h1>
+  <p>Name: {{ mission.launch_site.site_name_long }}</p>
+  <h1>Launch Details</h1>
+  <p>{{ mission.details }}</p>
+  <button type="button" (click)="goBack()">back</button>
+</body>

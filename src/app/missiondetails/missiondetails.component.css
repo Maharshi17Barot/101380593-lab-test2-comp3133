@@ -1,0 +1,55 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fcb772;
+}
+
+.container {
+  width: 100%;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 20px;
+}
+
+h1 {
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+  color: #333;
+}
+
+.mission-patch {
+  width: 50px; /* Adjust as needed */
+  height: auto;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+/* Mission details styling */
+.mission-details {
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Button styling */
+button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+  .container {
+    width: 100%;
+  }
+}

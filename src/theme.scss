@@ -1,0 +1,37 @@
+@import '~@angular/material/theming';
+
+// Define your custom theme's palettes
+$my-app-primary: mat-palette($mat-indigo);
+$my-app-accent: mat-palette($mat-pink, A200, A100, A400);
+$my-app-warn: mat-palette($mat-red);
+
+// Create the theme object (including light/dark mode configurations if needed)
+$my-app-theme: mat-light-theme(
+  (
+    color: (
+      primary: $my-app-primary,
+      accent: $my-app-accent,
+      warn: $my-app-warn,
+    ),
+  )
+);
+
+$my-app-typography: mat-typography-config(
+  $font-family: 'Roboto, sans-serif',
+  $headline-1: mat-typography-level(32px, 48px, 700),
+  // Add other customizations as needed
+);
+
+// Apply your custom typography
+@include mat-core($my-app-typography);
+
+
+
+// Include all component themes
+@include angular-material-theme($my-app-theme);
+
+// Additional custom styles
+// Here you can add your custom styles, for example:
+body {
+  font-family: 'Roboto', sans-serif;
+}
